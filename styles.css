@@ -30,27 +30,29 @@ body, a:link, a:visited, a:active{
 }
 
 .Trex {
-  height: 400px;
+  /*height: 400px;
   width: 320px;
-  background: url('lib/giphy.gif') no-repeat top left;
+  background: url('lib/giphy.gif') no-repeat top left;*/
   -webkit-background-size: cover;
   background-size: cover;
   position:absolute;
 }
 
 .Ptera {
+  /*
   height: 186px;
   width: 300px;
-  background: url('lib/pterapic.png') no-repeat top left;
+  background: url('lib/pterapic.png') no-repeat top left;*/
   -webkit-background-size: cover;
   background-size: cover;
   position:absolute;
 }
 
 .BlinkyDancer {
+  /*
   height: 215px;
   width: 400px;
-  background: url('lib/bigdino.png') no-repeat top left;
+  background: url('lib/bigdino.png') no-repeat top left;*/
   -webkit-background-size: cover;
   background-size: cover;
   position:absolute;

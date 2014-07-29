@@ -1,12 +1,17 @@
-var BlinkyDancer = function(top, left, timeBetweenSteps, className ){
-  this.className = className;
+var BlinkyDancer = function(top, left, timeBetweenSteps){
   this.top = top;
-  this.left = left;
+  this.left = left; 
+  this.width = 400;
+  this.height = 215;
+  this.img = "url('lib/bigdino.png')";
+  this.$node =  $('<span class="BlinkyDancer"></span>');
+
   this.timeBetweenSteps = 1000;
-  Dancer.call(this, this.top, this.left, this.timeBetweenSteps, this.className);
+  this.setCss(this.width, this.height, this.img);
+  Dancer.call(this, this.top, this.left, this.timeBetweenSteps, this.$node);
+  this.setCss(this.width, this.height, this.img);
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
-  //this.oldStep = this.step();
 };
 
 BlinkyDancer.prototype = Object.create(Dancer.prototype);
@@ -21,7 +26,21 @@ BlinkyDancer.prototype.step = function(){
     // other effects you can use on a jQuery-wrapped html tag.
 
 };
-
+/*
+BlinkyDancer.prototype.setCss = function(width, height){
+  var setStyle = {
+    width: this.width,
+  height: this.height,
+  backgroundImage: this.img
+  }
+  this.$node.css(setStyle);
+}*/
+BlinkyDancer.prototype.lineUp = function(){
+  var setStyle = {
+    left: 650
+  }
+  this.$node.css(setStyle);
+}
 // Dacer
 // - blinkyDancer: type of dancer that blinks
 // - trex: type of dancer that changes color

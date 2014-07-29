@@ -24,7 +24,7 @@ $(document).ready(function(){
     if(dancerMakerFunctionName === "LineThemUp"){
       for(var i = 0; i < window.dancers.length; i++){
         var dino = window.dancers[i];
-        dino.movePosition();
+        dino.lineUp();
       }
     } else {
     // make a dancer with a random position
