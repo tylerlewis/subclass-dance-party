@@ -3,8 +3,11 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  background: url("http://www.3dartistonline.com/users/1313/thm1024/jungle_clearing.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  background-size: cover;
   font-size: 18px;
+
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -25,3 +28,31 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+
+.Trex {
+  height: 400px;
+  width: 320px;
+  background: url('lib/giphy.gif') no-repeat top left;
+  -webkit-background-size: cover;
+  background-size: cover;
+  position:absolute;
+}
+
+.Ptera {
+  height: 186px;
+  width: 300px;
+  background: url('lib/pterapic.png') no-repeat top left;
+  -webkit-background-size: cover;
+  background-size: cover;
+  position:absolute;
+}
+
+.BlinkyDancer {
+  height: 215px;
+  width: 400px;
+  background: url('lib/bigdino.png') no-repeat top left;
+  -webkit-background-size: cover;
+  background-size: cover;
+  position:absolute;
+}
+

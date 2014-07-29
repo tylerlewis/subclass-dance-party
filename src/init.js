@@ -15,19 +15,35 @@ $(document).ready(function(){
      * A new object of the given type will be created and added
      * to the stage.
      */
+
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
 
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
+    if(dancerMakerFunctionName === "LineThemUp"){
+      for(var i = 0; i < window.dancers.length; i++){
+        var dino = window.dancers[i];
+        dino.movePosition();
+      }
+    } else {
     // make a dancer with a random position
-
-    var dancer = dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
-      Math.random() * 1000
-    );
-    $('body').append(dancer.$node);
+      var dancer = new dancerMakerFunction(
+        Math.floor(Math.random() * 400) + 50,
+        Math.floor(Math.random() * 1200) + 1,
+        Math.random() * 1000,
+        dancerMakerFunctionName
+      );
+      window.dancers.push(dancer);
+      //dancers.push(dancer);
+      $('body').append(dancer.$node);
+      $(dancer.$node).draggable();
+    }
   });
 });
 
+/*
+     $("body").height() * Math.floor(Math.random() * 2000) + 500,
+      $("body").width() * Math.floor(Math.random() * 1500) + 500,
+      Math.random() * 1000,
+ */
