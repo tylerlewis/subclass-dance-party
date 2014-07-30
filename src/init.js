@@ -2,48 +2,62 @@ $(document).ready(function(){
   window.dancers = [];
 
   $(".addDancerButton").on("click", function(event){
-    /* This function sets up the click handlers for the create-dancer
-     * buttons on index.html. You should only need to make one small change to it.
-     * As long as the "data-dancer-maker-function-name" attribute of a
-     * class="addDancerButton" DOM node matches one of the names of the
-     * maker functions available in the global scope, clicking that node
-     * will call the function to make the dancer.
-     */
-
-    /* dancerMakerFunctionName is a string which must match
-     * one of the dancer maker functions available in global scope.
-     * A new object of the given type will be created and added
-     * to the stage.
-     */
-
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
 
-    // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     if(dancerMakerFunctionName === "LineThemUp"){
       for(var i = 0; i < window.dancers.length; i++){
         var dino = window.dancers[i];
-        dino.lineUp();
+        dino.lineUp(dino.line);
+      }
+    } else if(dancerMakerFunctionName === "TwerkEm") {
+      var tric = [];
+      for(var i = 0; i < window.dancers.length; i++){
+        if(window.dancers[i] instanceof ToBeTwerked){
+          if(!tric.pair) {
+            tric.push(window.dancers[i]);
+          }
+        }
+      }
+      for(var j = 0; j < tric.length; j++){
+        var currentMatch;
+        var min = 10000;
+        var currentTric = tric[j];
+        var x1 = currentTric.left;
+        var y1 = currentTric.top;
+        for(var k = 0; k < window.dancers.length; k++) {
+          var dino = window.dancers[k];
+          if(dino instanceof Trex) {
+            var x2 = dino.left;
+            var y2 = dino.top;
+            var pyth = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+            if(pyth < min) {
+              min = pyth;
+              currentMatch = dino;
+              currentTric.pair = true;
+            }
+          }
+        }
+        var styleSettings = {
+          top: currentMatch.top - 200,
+          left: currentMatch.left + 60,
+          zIndex: 1
+        };
+        currentTric.$node.css(styleSettings);
       }
     } else {
-    // make a dancer with a random position
+      var h = $(window).height() - 450;
+      var w = $(window).width() - 450;
       var dancer = new dancerMakerFunction(
-        Math.floor(Math.random() * 400) + 50,
-        Math.floor(Math.random() * 1200) + 1,
+        Math.floor(Math.random() * h) + 50,
+        Math.floor(Math.random() * w) + 1,
         Math.random() * 1000,
         dancerMakerFunctionName
       );
       window.dancers.push(dancer);
-      //dancers.push(dancer);
       $('body').append(dancer.$node);
       $(dancer.$node).draggable();
     }
   });
 });
-
-/*
-     $("body").height() * Math.floor(Math.random() * 2000) + 500,
-      $("body").width() * Math.floor(Math.random() * 1500) + 500,
-      Math.random() * 1000,
- */

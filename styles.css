@@ -9,52 +9,45 @@ body{
   font-size: 18px;
 
 }
+
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
+
 .title, .addDancerButton{
   padding:5px 12px;
   float:right;
 }
+
 .topbar{
   height:32px;
   background-color: #555;
 }
+
 .title{
   background-color: #777;
 }
+
 .dancer{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
 }
 
-.Trex {
-  /*height: 400px;
-  width: 320px;
-  background: url('lib/giphy.gif') no-repeat top left;*/
-  -webkit-background-size: cover;
-  background-size: cover;
-  position:absolute;
-}
-
 .Ptera {
-  /*
-  height: 186px;
-  width: 300px;
-  background: url('lib/pterapic.png') no-repeat top left;*/
   -webkit-background-size: cover;
   background-size: cover;
   position:absolute;
 }
 
-.BlinkyDancer {
-  /*
-  height: 215px;
-  width: 400px;
-  background: url('lib/bigdino.png') no-repeat top left;*/
+.Trex {
   -webkit-background-size: cover;
   background-size: cover;
   position:absolute;
 }
 
+.ToBeTwerked {
+  -webkit-background-size: cover;
+  background-size: cover;
+  position:absolute;
+}
