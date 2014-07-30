@@ -51,3 +51,11 @@ body, a:link, a:visited, a:active{
   background-size: cover;
   position:absolute;
 }
+
+.ben {
+  height: 75px;
+  width: 175px;
+  position: absolute;
+  -webkit-background-size: cover;
+  background-size: cover;
+}

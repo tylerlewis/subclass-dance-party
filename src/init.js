@@ -11,6 +11,20 @@ $(document).ready(function(){
         var dino = window.dancers[i];
         dino.lineUp(dino.line);
       }
+    } else if(dancerMakerFunctionName === "MakeItRain"){
+      var bens = [];
+      for(var i = 0; i < 100; i++) {
+        $ben = $('<span class="ben"></span>');
+        $ben.css("background-image", "url('lib/ben.png')");
+        $ben.css("left", $(window).width() * Math.random());
+        $ben.css("top", $(window).height() * Math.random());
+        $ben.css("zIndex", 3);
+        bens.push($ben);
+      }
+      jQuery.each(bens, function(i) {
+        $("body").append(bens[i]);
+        bens[i].animate({top: "+=1200px"}, 3000);
+      });
     } else if(dancerMakerFunctionName === "TwerkEm") {
       var tric = [];
       for(var i = 0; i < window.dancers.length; i++){
